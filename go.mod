@@ -1,4 +1,4 @@
-module github.com/tjcelaya/go-datera
+module github.com/geek/go-datera
 
 require (
 	github.com/Datera/go-sdk v1.1.14
