@@ -256,9 +256,9 @@ func (c *ApiConnection) retry(ctxt context.Context, method, url string, ro *greq
 
 		// Retry on 503 and ConnectionErrors only
 		if apiresp != nil && apiresp.Http != 503 {
-			return apiresp, err
+			return apiresp, nil
 		} else if err != nil && !strings.Contains(err.Error(), "connect: connection refused") {
-			return apiresp, err
+			return nil, err
 		}
 
 		time.Sleep(time.Second * time.Duration(backoff*backoff))
