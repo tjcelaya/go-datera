@@ -385,7 +385,7 @@ func (c *ApiConnection) do(ctxt context.Context, method, url string, ro *greq.Re
 		return eresp, nil
 	}
 	if err != nil {
-		detailLog.Errorf("Error during checkResponse: %s", err)
+		detailLog.Errorf("Error during translateErrors: %s", err)
 		return nil, err
 	}
 	err = resp.JSON(rs)
