@@ -363,8 +363,7 @@ func (c *ApiConnection) do(ctxt context.Context, method, url string, ro *greq.Re
 		if c.hasLoggedIn() {
 			c.Logout()
 			if apiresp, err2 := c.Login(ctxt); apiresp != nil || err2 != nil {
-				detailLog.Errorf("%s", err)
-				detailLog.Errorf("%s", err2)
+				detailLog.Errorf("failed to re-authenticate before retrying request: %s", err2)
 				return apiresp, err2
 			}
 			c.m.RLock()
